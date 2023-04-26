@@ -35,50 +35,18 @@ public class Ej5 {
                 caracter = entrada.readLine().charAt(0);
 
                 if (caracter == 'a'||caracter == 'e'||caracter == 'i'||caracter == 'o'||caracter == 'u') {
-                    if (hora==6){
+                    if (hora==6||hora==8||hora==10||hora==11){
                         System.out.println(hora + " Tiene 2 vocales");
                     }
 
-                    else  if (hora==7){
+                    else  if (hora==7 || hora==9){
                         System.out.println(hora + " Tiene 3 vocales");
-                    }
-
-                    else  if (hora==8){
-                        System.out.println(hora + " Tiene 2 vocales");
-                    }
-
-                    else  if (hora==9){
-                        System.out.println(hora + " Tiene 3 vocales");
-                    }
-                    else  if (hora==10){
-                        System.out.println(hora + " Tiene 2 vocales");
-                    }
-                    else  if (hora==11){
-                        System.out.println(hora + " Tiene 2 vocales");
                     }
                 }
 
                 else {
-                    if (hora==6){
-                        System.out.println(hora+ " Tiene 2 consonantes");
-                    }    
-                    else if (hora==7){
-                        System.out.println(hora+ " Tiene 2 consonantes");
-                    }       
-                    else if (hora==8){
-                        System.out.println(hora+ " Tiene 2 consonantes");
-                    }  
-                    else if (hora==9){
-                        System.out.println(hora+ " Tiene 2 consonantes");
-                    }  
-                    else if (hora==10){
-                        System.out.println(hora+ " Tiene 2 consonantes");
-                    }  
-                    else if (hora==11){
-                        System.out.println(hora+ " Tiene 2 consonantes");
-                    }            
+                   System.out.println(hora + " Tiene 2 consonantes");
                 }
-
             }
 
             if((hora>=12)&&(hora<=17)&&hora%2==0){

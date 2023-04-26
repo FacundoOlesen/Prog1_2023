@@ -82,7 +82,7 @@ public class Ej1 {
         }
 
         else {
-            System.out.println(numero1 + ", " + numero2 + ", "+ numero3 + " Error! Estan desordenados");
+            System.out.println(numero1 + ", " + numero2 + ", "+ numero3 + " No estan ordenados de ninguna manera.");
 
         }
 
