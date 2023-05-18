@@ -4,10 +4,7 @@ import java.io.InputStreamReader;
 public class Ej13 {
     public static void main(String[] args) {
         int opcion = obtenerOpcion(0);
-        if (opcion!=1||opcion!=2||opcion!=3||opcion!=4){
-            System.out.println("Error. La opcion ingresada: " + opcion + " no es valida.");
-            return;
-        }
+       
         int r1=0, r2=0, r3=0;
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));    
         try {

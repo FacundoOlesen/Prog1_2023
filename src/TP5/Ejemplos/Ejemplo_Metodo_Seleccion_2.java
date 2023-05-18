@@ -1,9 +1,9 @@
-package arreglos;
+package TP5.Ejemplos;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class seleccion {
+public class Ejemplo_Metodo_Seleccion_2 {
     public static void main(String[] args) {
         final int MAX = 10;
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
