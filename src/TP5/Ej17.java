@@ -43,13 +43,16 @@ public class Ej17 {
     }
 
     public static int obtener_pos_fin(int[] arr, int pos) {
+       
         while (pos < MAX && arr[pos] != 0) {
             pos++;
         }
-        return pos - 1;
+        return pos -1;
     }
 
-  
+  //ARRANCAR DE ATRAS Y LA ANTEULTIMA VA A SER LA ULTIMA -1 
+  //Recorro desde la ult secuen hasta un el primer 0 q encuentre, ese va a ser el fin
+  //Recorro desde el fin hasta el proximo 0 +1, ese va a ser el inicio.
 
     public static void obtenerAnteUltimaSecuencia(int arr[], int ini, int fin){
         int indice=0;
@@ -60,7 +63,9 @@ public class Ej17 {
             fin=obtener_pos_fin(arr, ini);
             
             indice=fin+1;
+
         }
+       
     }
 
 }
