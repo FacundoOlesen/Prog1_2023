@@ -39,7 +39,7 @@ public class Ej8 {
         int pos = 0;
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
-            System.out.println("Ingrese la posicion para hacer el corrimiento a derecha.");
+            System.out.println("Ingrese la posicion para hacer el corrimiento a izquierda.");
             pos= Integer.valueOf(entrada.readLine());
         }
 

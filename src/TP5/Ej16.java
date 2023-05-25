@@ -69,7 +69,6 @@ public class Ej16 {
         while(indice<MAX){
             int inicio= obtener_inicio_secuencia(arr, indice);
             int fin_secuncia = obtener_fin_secuencia(arr, inicio);
-            
             int suma= suma_secuencia(arr, inicio, fin_secuncia); 
 
             if(suma>sumamayor){

@@ -2,16 +2,18 @@ package TP5;
 
 import java.util.Random;
 
-public class Ej17 {
+public class Ej23 {
     public static final int MAX = 20, MAXVALOR = 9, MINVALOR = 1;
     public static final double probabilidad_numero = 0.4;
 
     public static void main(String[] args) {
-        int ini=0, fin =0;
-        int arr[] = new int[MAX];
-        cargar_arreglo_aleatorio_secuencias_int(arr);
+        int arr[] = { 0, 3, 4, 5, 0, 3, 4, 5 ,6 ,2 ,3, 0, 2, 3, 0, 6, 8, 7, 4, 0 };
         imprimir_arreglo_secuencias_int(arr);
-        obtenerAnteUltimaSecuencia(arr, ini, fin);
+        int fin = obtener_pos_fin(arr, MAX-1);
+        int ini = obtener_pos_ini(arr, fin);
+        invertirOrdenUltimaSecuencia(arr, ini, fin);
+        imprimir_arreglo_secuencias_int(arr);
+
     }
 
     public static void cargar_arreglo_aleatorio_secuencias_int(int[] arr) {
@@ -33,43 +35,28 @@ public class Ej17 {
             System.out.print(arr[pos] + "|");
         }
         System.out.print("\n");
-       
     }
 
-    public static int obtener_pos_ini(int arr[], int pos) {
+    public static int obtener_pos_ini(int[] arr, int pos) {
         while (pos > 0 && arr[pos] != 0) {
             pos--;
         }
-        return pos+1;
+        return pos + 1;
     }
 
     public static int obtener_pos_fin(int[] arr, int pos) {
-        pos=MAX-1;
         while (pos > 0 && arr[pos] == 0) {
             pos--;
         }
         return pos;
     }
 
-    public static void obtenerAnteUltimaSecuencia(int arr[], int ini, int fin){
-        int anteultimoini=0;
-        int anteultimofin=0;
-        fin=obtener_pos_fin(arr, MAX-1);
-        ini= obtener_pos_ini(arr, fin);
-        int aux= ini-1;
-
-        while(fin>0&&arr[aux]==0){
-            aux--;                      //Calculo anteultimo FIN
-        }
-        anteultimofin=aux;
-
-        while(ini>0&&arr[aux]!=0){
-            aux--;                      //Calculo anteultimo INICIO
-        }
-
-        anteultimoini=aux+1;
-
-        System.out.println("La anteultima secuencia va de: "+ anteultimoini+ " a: " +anteultimofin);
+    public static void invertirOrdenUltimaSecuencia(int[] arr, int ini, int fin) {
+        int retener;
+        for (int i = ini; i < fin-1 ; i++) {
+            retener = arr[i];
+            arr[i]= arr[(fin+ini)-i];
+            arr[(fin+ini)-i] =retener;
+         }
     }
-
 }

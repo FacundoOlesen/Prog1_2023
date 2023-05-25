@@ -12,9 +12,7 @@ public class Ej6 {
         imprimir_arreglo_int(arr);
         int pares= obtenerPares(arr);
         System.out.println("El arreglo tiene " + pares + " numeros pares.");
-
     }
-
 
     public static void cargar_arreglo_aleatorio_int(int[] arr) {
         Random r = new Random();
@@ -29,9 +27,6 @@ public class Ej6 {
         }
     }
 
-    //metodo de intercambiar arreglo
-    //recorro el arreglo
-    //arr[0]=arr[9]
     public static int obtenerPares(int[]arr){
         int acum=0;
         for (int i=0; i<MAX; i++){

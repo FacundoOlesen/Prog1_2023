@@ -2,7 +2,10 @@ package TP5;
 
 import java.util.Random;
 
-public class Ej18 {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Ej24 {
     public static final int MAX = 20, MAXVALOR = 9, MINVALOR = 1;
     public static final double probabilidad_numero = 0.4;
 
@@ -10,7 +13,8 @@ public class Ej18 {
         int arr[] = new int[MAX];
         cargar_arreglo_aleatorio_secuencias_int(arr);
         imprimir_arreglo_secuencias_int(arr);
-        compararLongitudesDeCadaSecuencia(arr);
+        int numero = obtenerNumeroUsuario();
+        obtenerSecuenciaAPartirDePos(arr,  numero);
     }
 
     public static void cargar_arreglo_aleatorio_secuencias_int(int[] arr) {
@@ -34,7 +38,21 @@ public class Ej18 {
         System.out.print("\n");
     }
 
-    public static int obtenerIni(int arr[], int pos) {
+    public static int obtenerNumeroUsuario() {
+        int numero = 0;
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            System.out.println("Ingrese una posición entre 0 y 19.");
+            numero = Integer.valueOf(entrada.readLine());
+        }
+
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return numero;
+    }
+
+    public static int obtenerIni(int[] arr, int pos) {
         while (pos < MAX && arr[pos] == 0) {
             pos++;
         }
@@ -48,34 +66,19 @@ public class Ej18 {
         return pos - 1;
     }
 
-    public static int sumarLongitudesDeCadaSecuencia(int[] arr, int ini, int fin) {
-        int longitud = 0;
-        for (int i = ini; i < fin; i++) {
-            longitud = (fin - ini) + 1;
-        }
-        return longitud;
-    }
-
-    public static void compararLongitudesDeCadaSecuencia(int[] arr) {
+    public static void obtenerSecuenciaAPartirDePos(int[] arr,  int numero) {
         int ini = 0;
         int fin = -1;
-        int iniciomayor = 0;
-        int finmayor = 0;
-        int secuenciamayor = 0;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
             fin = obtenerFin(arr, ini);
-            int longitudsecuencia = sumarLongitudesDeCadaSecuencia(arr, ini, fin);
-
-            if (longitudsecuencia > secuenciamayor) {
-                secuenciamayor = longitudsecuencia;
-                iniciomayor = ini;
-                finmayor = fin;
-                fin = ini;
+            if (numero >= ini && numero <= fin) {
+                System.out.println("La posicion ingresada: (" + numero + ") se encuentra en la secuencia con INICIO: "
+                        + ini + " y con FIN: " + fin);
+            break;
             }
-
+            fin = ini;
         }
-        System.out.println("La secuncia de mayor tamaño tiene una longitud de: " + ((finmayor - iniciomayor) + 1) + " y empieza en: "
-                + iniciomayor + " y termina en: " + finmayor);
+
     }
 }

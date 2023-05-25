@@ -2,7 +2,10 @@ package TP5;
 
 import java.util.Random;
 
-public class Ej18 {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Ej19 {
     public static final int MAX = 20, MAXVALOR = 9, MINVALOR = 1;
     public static final double probabilidad_numero = 0.4;
 
@@ -10,7 +13,10 @@ public class Ej18 {
         int arr[] = new int[MAX];
         cargar_arreglo_aleatorio_secuencias_int(arr);
         imprimir_arreglo_secuencias_int(arr);
-        compararLongitudesDeCadaSecuencia(arr);
+        int numero = obtenerNumeroUsuario();
+        eliminarSecuenciasDeLongitudN(arr, numero);
+        imprimir_arreglo_secuencias_int(arr);
+
     }
 
     public static void cargar_arreglo_aleatorio_secuencias_int(int[] arr) {
@@ -34,7 +40,22 @@ public class Ej18 {
         System.out.print("\n");
     }
 
-    public static int obtenerIni(int arr[], int pos) {
+    public static int obtenerNumeroUsuario() {
+        int numero = 0;
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            System.out.println(
+                    "Ingrese un numero. Si ese numero es igual a la longitud de una secuencia, dicha secuencia sera eliminada.");
+            numero = Integer.valueOf(entrada.readLine());
+        }
+
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return numero;
+    }
+
+    public static int obtenerIni(int[] arr, int pos) {
         while (pos < MAX && arr[pos] == 0) {
             pos++;
         }
@@ -48,34 +69,39 @@ public class Ej18 {
         return pos - 1;
     }
 
-    public static int sumarLongitudesDeCadaSecuencia(int[] arr, int ini, int fin) {
+    public static int obtenerLongitudesDeCadaSecuencia(int[] arr, int ini, int fin) {
         int longitud = 0;
-        for (int i = ini; i < fin; i++) {
+        for (int i = ini; i <= fin; i++) {
             longitud = (fin - ini) + 1;
         }
         return longitud;
     }
 
-    public static void compararLongitudesDeCadaSecuencia(int[] arr) {
+    public static void corrimientoIzquierda(int[] arr, int pos) {
+        while (pos < MAX - 1) {
+            arr[pos] = arr[pos + 1];
+            pos++;
+        }
+    }
+
+    public static void eliminarSecuencia(int[]arr, int ini, int fin){
+        for (int i = ini; i <= fin; i++) {
+            corrimientoIzquierda(arr, ini);
+        }
+    }
+
+    public static void eliminarSecuenciasDeLongitudN(int[] arr, int numero) {
         int ini = 0;
         int fin = -1;
-        int iniciomayor = 0;
-        int finmayor = 0;
-        int secuenciamayor = 0;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
             fin = obtenerFin(arr, ini);
-            int longitudsecuencia = sumarLongitudesDeCadaSecuencia(arr, ini, fin);
-
-            if (longitudsecuencia > secuenciamayor) {
-                secuenciamayor = longitudsecuencia;
-                iniciomayor = ini;
-                finmayor = fin;
+            int longitud = obtenerLongitudesDeCadaSecuencia(arr, ini, fin);
+            if (numero == longitud) {
+               eliminarSecuencia(arr, ini, fin);
                 fin = ini;
             }
 
         }
-        System.out.println("La secuncia de mayor tamaño tiene una longitud de: " + ((finmayor - iniciomayor) + 1) + " y empieza en: "
-                + iniciomayor + " y termina en: " + finmayor);
     }
 }

@@ -51,7 +51,6 @@ public class Ej9 {
             indice--;
         }
         arr[0]=numero;
-        
     }
 
 }
