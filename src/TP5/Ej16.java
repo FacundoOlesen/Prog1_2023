@@ -7,12 +7,10 @@ public class Ej16 {
     public static final double probabilidad_numero = 0.4;
 
     public static void main(String[] args) {
-        int iniciomayor=0;
-        int finmayor=0;
         int arr[] = new int[MAX];
         cargar_arreglo_aleatorio_secuencias_int(arr);
         imprimir_arreglo_secuencias_int(arr);
-        obtener_suma_mayor_secuencia(arr, iniciomayor, finmayor);
+        obtener_suma_mayor_secuencia(arr);
 
     }
 
@@ -60,23 +58,24 @@ public class Ej16 {
         return suma;
     }
   
-    public static void obtener_suma_mayor_secuencia(int[]arr, int ini, int fin){
-        int indice=0;
+    public static void obtener_suma_mayor_secuencia(int[]arr){
+        int ini = 0;
+        int fin = -1;
         int iniciomayor=0;
         int finmayor=0;
         int sumamayor=0;
 
-        while(indice<MAX){
-            int inicio= obtener_inicio_secuencia(arr, indice);
-            int fin_secuncia = obtener_fin_secuencia(arr, inicio);
-            int suma= suma_secuencia(arr, inicio, fin_secuncia); 
+        while(ini<MAX){
+             ini= obtener_inicio_secuencia(arr, fin+1);
+             fin = obtener_fin_secuencia(arr, ini);
+            int suma= suma_secuencia(arr, ini, fin); 
 
             if(suma>sumamayor){
                 sumamayor=suma;
-                iniciomayor=inicio;
-                finmayor=fin_secuncia;
+                iniciomayor=ini;
+                finmayor=fin;
             }
-            indice=fin_secuncia+1;
+            fin=ini;
         }
 
         System.out.println(("La suma de la secuencia mayor empieza en: " + iniciomayor + " termina en: " + finmayor + " y la suma da: " + sumamayor));
