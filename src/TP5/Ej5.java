@@ -30,11 +30,14 @@ public class Ej5 {
     }
 
     public static void intercambioArreglo(char[] arr) {
-        char retener;
-        for (int i = 0; i < MAX / 2; i++) {
-            retener = arr[i];
-            arr[i] = arr[(MAX - 1) - i];
-            arr[(MAX - 1) - i] = retener;
+        int i=0;
+        int j=MAX-1;
+        while(i<j){
+            char aux=arr[i];
+            arr[i]=arr[j];
+            arr[j]=aux;
+            i++;
+            j--;
         }
 
     }
