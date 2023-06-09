@@ -15,7 +15,7 @@ public class Ej2 {
     public static void mostrarArreglo(int[] arr) {
         for (int i = 0; i < MAX; i++)
             System.out.print(arr[i] + "|");
-        System.out.println();
+            System.out.println();
     }
 
     public static int obtenerIni(int[] arrDatos, int pos) {
@@ -63,15 +63,11 @@ public class Ej2 {
 
         int cantSecuenciasRepetidas = 0;
         while (iniDatos < MAX) {
-
-
             iniDatos = obtenerIni(arrDatos, finDatos + 1);
-
             if (iniDatos < MAX) {
                 finDatos = obtenerFin(arrDatos, iniDatos);
                 if (compararSecuenciasDatosConSecuenciaPatron(arrDatos, arrPatron, iniDatos, finDatos, iniPatron)) {
                         cantSecuenciasRepetidas++;
-
                     if (cantSecuenciasRepetidas > N) {
                         eliminarSecuencia(arrDatos, iniDatos, finDatos);
                         finDatos = iniDatos;

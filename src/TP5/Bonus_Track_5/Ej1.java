@@ -80,7 +80,7 @@ public class Ej1 {
         }
         return pos - 1;
     }
-
+    //A
     public static void contarCantidadTickets(int arr[]) {
         int ini = 0;
         int fin = -1;
@@ -93,7 +93,7 @@ public class Ej1 {
         }
         System.out.println("\n La cantidad de tickets emitidos en la semana es de: " + contador);
     }
-
+    //B
     public static int calcularImporteTotal(int[] arr) {
         int suma = 0;
         for (int i = 0; i < MAX; i++) {
@@ -103,14 +103,7 @@ public class Ej1 {
         return suma;
     }
 
-    public static int obtenerSumasTickets(int[] arr, int ini, int fin) {
-        int suma = 0;
-        for (int i = ini; i <= fin; i++) {
-            suma += arr[i];
-        }
-        return suma;
-    }
-
+    //C
     public static void obtenerTicketMayorImporte(int[] arr) {
         int ini = 0;
         int fin = -1;
@@ -131,17 +124,15 @@ public class Ej1 {
         System.out.println(("\n El ticket de mayor importe empieza en: " + iniciomayor + " termina en: " + finmayor+ " y la suma da: " + sumamayor));
         obtenerInfoTicketMayorImporte(arr, iniciomayor, finmayor);
     }
-
-    public static void obtenerInfoTicketMayorImporte(int[] arr, int ini, int fin) {
+    public static int obtenerSumasTickets(int[] arr, int ini, int fin) {
         int suma = 0;
-        int i = ini;
-        while (i <= fin) {
+        for (int i = ini; i <= fin; i++) {
             suma += arr[i];
-            i++;
         }
-        System.out.println("\n Hay: " + (fin - ini) + 1 + " articulos involucrados. El promedio es de: "+ (suma / (fin - ini) + 1));
+        return suma;
     }
 
+    //D
     public static void calcularTicketMayorCantArticulos(int[] arr) {
         int ini = 0;
         int fin = -1;
@@ -162,7 +153,7 @@ public class Ej1 {
         obtenerInfoTicketMayorArtVendidos(arr, inimayor, finmayor);
         System.out.println("\n La mayor cantidad de articulos vendidos en un ticket fue de: " + longitudmayor);
     }
-
+    //E
     public static void obtenerInfoTicketMayorArtVendidos(int[] arr, int inimayor, int finmayor) {
         int mayor = 0;
         int menor = 0;
@@ -181,7 +172,17 @@ public class Ej1 {
         int promedio = suma / (finmayor - inimayor) + 1;
         System.out.println("\n Del ticket con mayor cant de art vendidos, el articulo mas caro es:" + mayor + " el menor "+ menor + " y el promedio: " + promedio);
     }
-
+    //F
+    public static void obtenerInfoTicketMayorImporte(int[] arr, int ini, int fin) {
+        int suma = 0;
+        int i = ini;
+        while (i <= fin) {
+            suma += arr[i];
+            i++;
+        }
+        System.out.println("\n Hay: " + (fin - ini) + 1 + " articulos involucrados. El promedio es de: "+ (suma / (fin - ini) + 1));
+    }
+    //G
     public static void obtenerPromedioGeneral(int[] arr) {
         int ini = 0;
         int fin = -1;
@@ -200,7 +201,7 @@ public class Ej1 {
         }
         System.out.println("\n El promedio total de venta de ticket en todo el fin de semana es: " + suma / acum);
     }
-
+    //H
     public static void calcularTicketMenorImporte(int[] arr) {
         int ini = 0;
         int fin = -1;
@@ -220,7 +221,7 @@ public class Ej1 {
         }
         System.out.println(("\n El ticket de menor importe tiene un valor de: " + menorticket));
     }
-
+    //I
     public static void obtenerTicketMenorCantArtVen(int[] arr) {
         int ini = 0;
         int fin = -1;
