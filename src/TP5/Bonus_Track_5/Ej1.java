@@ -84,12 +84,14 @@ public class Ej1 {
     public static void contarCantidadTickets(int arr[]) {
         int ini = 0;
         int fin = -1;
-        int contador = -1;
+        int contador = 0;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            contador++;
-            ini = fin + 1;
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                contador++;
+                ini=fin;
+            }
         }
         System.out.println("\n La cantidad de tickets emitidos en la semana es de: " + contador);
     }
@@ -112,14 +114,16 @@ public class Ej1 {
         int sumamayor = 0;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            int suma = obtenerSumasTickets(arr, ini, fin);
-            if (suma > sumamayor) {
-                sumamayor = suma;
-                iniciomayor = ini;
-                finmayor = fin;
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                int suma = obtenerSumasTickets(arr, ini, fin);
+                if (suma > sumamayor) {
+                    sumamayor = suma;
+                    iniciomayor = ini;
+                    finmayor = fin;
+                }
+                ini=fin;
             }
-            fin = ini;
         }
         System.out.println(("\n El ticket de mayor importe empieza en: " + iniciomayor + " termina en: " + finmayor+ " y la suma da: " + sumamayor));
         obtenerInfoTicketMayorImporte(arr, iniciomayor, finmayor);
@@ -141,14 +145,16 @@ public class Ej1 {
         int finmayor = 0;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            int longitud = (fin - ini) + 1;
-            if (longitud > longitudmayor) {
-                longitudmayor = longitud;
-                inimayor = ini;
-                finmayor = fin;
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                int longitud = (fin - ini) + 1;
+                if (longitud > longitudmayor) {
+                    longitudmayor = longitud;
+                    inimayor = ini;
+                    finmayor = fin;
+                }
+                ini = fin ;
             }
-            ini = fin + 1;
         }
         obtenerInfoTicketMayorArtVendidos(arr, inimayor, finmayor);
         System.out.println("\n La mayor cantidad de articulos vendidos en un ticket fue de: " + longitudmayor);
@@ -206,20 +212,22 @@ public class Ej1 {
         int ini = 0;
         int fin = -1;
         ini = obtenerIni(arr, fin + 1);
-        fin = obtenerFin(arr, ini);
-        int menorticket = obtenerSumasTickets(arr, ini, fin);
-        while (ini < MAX) {
-            ini = obtenerIni(arr, fin + 1);
-            if (ini < MAX) {
-                fin = obtenerFin(arr, ini);
-                int sumamenor = obtenerSumasTickets(arr, ini, fin);
-                if (sumamenor < menorticket) {
-                    menorticket = sumamenor;
-                    ini = fin;
+        if(ini<MAX){
+            fin = obtenerFin(arr, ini);
+            int menorticket = obtenerSumasTickets(arr, ini, fin);
+            while (ini < MAX) {
+                ini = obtenerIni(arr, fin + 1);
+                if (ini < MAX) {
+                    fin = obtenerFin(arr, ini);
+                    int sumamenor = obtenerSumasTickets(arr, ini, fin);
+                    if (sumamenor < menorticket) {
+                        menorticket = sumamenor;
+                        ini = fin;
+                    }
                 }
-            }
         }
-        System.out.println(("\n El ticket de menor importe tiene un valor de: " + menorticket));
+            System.out.println(("\n El ticket de menor importe tiene un valor de: " + menorticket));
+        }
     }
     //I
     public static void obtenerTicketMenorCantArtVen(int[] arr) {

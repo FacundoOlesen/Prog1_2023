@@ -48,14 +48,6 @@ public class Ej18 {
         return pos - 1;
     }
 
-    public static int sumarLongitudesDeCadaSecuencia(int[] arr, int ini, int fin) {
-        int longitud = 0;
-        for (int i = ini; i < fin; i++) {
-            longitud = (fin - ini) + 1;
-        }
-        return longitud;
-    }
-
     public static void compararLongitudesDeCadaSecuencia(int[] arr) {
         int ini = 0;
         int fin = -1;
@@ -66,7 +58,7 @@ public class Ej18 {
             ini = obtenerIni(arr, fin + 1);
             if(ini<MAX){
                 fin = obtenerFin(arr, ini);
-                int longitudsecuencia = sumarLongitudesDeCadaSecuencia(arr, ini, fin);
+                int longitudsecuencia = fin-ini+1;
                 if (longitudsecuencia > secuenciamayor) {
                     secuenciamayor = longitudsecuencia;
                     iniciomayor = ini;

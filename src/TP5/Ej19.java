@@ -92,7 +92,7 @@ public class Ej19 {
                 int longitud = (fin-ini)+1;
                 if (numero == longitud) {
                    eliminarSecuencia(arr, ini, fin);
-                    fin = ini;
+                    ini=fin;
                 }
             }
 
