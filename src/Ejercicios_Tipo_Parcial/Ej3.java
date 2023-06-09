@@ -1,6 +1,6 @@
 package Ejercicios_Tipo_Parcial;
 
-public class Ej5 {
+public class Ej3 {
     public static int MAX = 14;
 
     public static void main(String[] args) {
