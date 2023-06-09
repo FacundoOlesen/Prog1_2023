@@ -1,5 +1,6 @@
 package Ejercicios_Tipo_Parcial;
 
+
 public class Ej2 {
     public static final int MAX = 21, SEPARADOR = -1, N = 2;
 
@@ -70,7 +71,7 @@ public class Ej2 {
                         cantSecuenciasRepetidas++;
                     if (cantSecuenciasRepetidas > N) {
                         eliminarSecuencia(arrDatos, iniDatos, finDatos);
-                        finDatos = iniDatos;
+                        iniDatos=finDatos;
                     }
                 }
             }

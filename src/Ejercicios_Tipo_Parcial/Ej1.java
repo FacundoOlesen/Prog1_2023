@@ -66,7 +66,7 @@ public class Ej1 {
         }
     }
 
-    public static boolean sonIguales(char[] arrA, char[] arrS, int ini, int fin, int iniS) {
+    public static boolean compararSecuenciasDeAyS(char[] arrA, char[] arrS, int ini, int fin, int iniS) {
         while (ini <= fin && arrA[ini] == arrS[iniS]) {
             ini++;
             iniS++;
@@ -74,7 +74,7 @@ public class Ej1 {
         return ini>fin;
     }
 
-    public static boolean esStopWord(char[]arrA, int ini, int fin, char[]arrS){
+    public static boolean encontrarSecuenciasDeAenS(char[]arrA, int ini, int fin, char[]arrS){
         int iniS=0;
         int finS=-1;
         boolean laEncontre=false;
@@ -82,7 +82,7 @@ public class Ej1 {
             iniS= obtenerIniS(arrS, finS+1);
             if(iniS<MAX_S){
                 finS=obtenerFinS(arrS, iniS);
-                if((fin-ini+1==finS-iniS+1)&&sonIguales(arrA, arrS, ini, fin, iniS)){
+                if((fin-ini+1==finS-iniS+1)&&compararSecuenciasDeAyS(arrA, arrS, ini, fin, iniS)){
                     laEncontre=true;
                 }
             }
@@ -92,15 +92,11 @@ public class Ej1 {
     public static void eliminarStopwordsDeA(char[] arrA, char[]arrS) {
         int ini = 0;
         int fin = -1;
-        int iniS=0;
-        int finS=-1;
-        iniS=obtenerIniS(arrA, finS+1);
-        finS=obtenerFinS(arrA, iniS);
         while (ini < MAX_A) {
             ini = obtenerIniA(arrA, fin + 1);
             if (ini < MAX_A) {
                 fin = obtenerFinA(arrA, ini);
-                if (esStopWord(arrA, ini, fin, arrS)) {
+                if (encontrarSecuenciasDeAenS(arrA, ini, fin, arrS)) {
                     eliminarSecuencia(arrA, ini, fin);
                     fin=ini;
                 }

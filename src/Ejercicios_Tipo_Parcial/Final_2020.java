@@ -55,7 +55,7 @@ public class Final_2020 {
             ini = obtenerIni(arr, fin+1);
             if(ini<MAX){
                 fin=obtenerFin(arr, ini);
-                if((fin-ini+1) %2==0){                              //ESTARIA BIEN HACERLO ASI? HABRIA Q HACER CORRIMIENTO DERECHA?
+                if((fin-ini+1) %2==0){                              
                     copiarSecDeAEnPar(arr, par, ini, fin);
                 }
             }

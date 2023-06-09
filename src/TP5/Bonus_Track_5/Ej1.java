@@ -222,8 +222,8 @@ public class Ej1 {
                     int sumamenor = obtenerSumasTickets(arr, ini, fin);
                     if (sumamenor < menorticket) {
                         menorticket = sumamenor;
-                        ini = fin;
                     }
+                    ini = fin;
                 }
         }
             System.out.println(("\n El ticket de menor importe tiene un valor de: " + menorticket));
@@ -243,8 +243,8 @@ public class Ej1 {
                 int longitud = (fin - ini) + 1;
                 if (longitud < longitudmenor) {
                     longitudmenor = longitud;
-                    ini = fin;
                 }
+                ini = fin;
             }
         }
         System.out.println("\n La menor cantidad de articulos vendidos en un ticket fue de: " + longitudmenor);

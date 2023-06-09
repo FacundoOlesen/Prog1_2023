@@ -45,16 +45,10 @@ public class Ejercicio_Extra_3 {
 
     public static boolean obtenerSecuenciasConMultiploDeDos(int[] arr, int ini, int fin) {
         int pos= ini;
-        boolean tienemult = false;
         while (pos <= fin && arr[pos] % 2 != 0) {
             pos++;
         }
-        if (pos<=fin){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return pos<fin;
     }
 
     public static void eliminarSecunecia(int[] arr, int ini, int fin) {
