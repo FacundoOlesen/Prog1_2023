@@ -14,7 +14,7 @@ public class Ej24 {
         cargar_arreglo_aleatorio_secuencias_int(arr);
         imprimir_arreglo_secuencias_int(arr);
         int numero = obtenerNumeroUsuario();
-        obtenerSecuenciaAPartirDePos(arr,  numero);
+        obtenerSecuenciaAPartirDePos(arr, numero);
     }
 
     public static void cargar_arreglo_aleatorio_secuencias_int(int[] arr) {
@@ -66,18 +66,19 @@ public class Ej24 {
         return pos - 1;
     }
 
-    public static void obtenerSecuenciaAPartirDePos(int[] arr,  int numero) {
+    public static void obtenerSecuenciaAPartirDePos(int[] arr, int numero) {
         int ini = 0;
         int fin = -1;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            if (numero >= ini && numero <= fin) {
-                System.out.println("La posicion ingresada: (" + numero + ") se encuentra en la secuencia con INICIO: "
-                        + ini + " y con FIN: " + fin);
-            break;
+            if (ini < MAX) {
+                fin = obtenerFin(arr, ini);
+                if (numero >= ini && numero <= fin) {
+                    System.out.println("La posicion ingresada: (" + numero
+                            + ") se encuentra en la secuencia con INICIO: " + ini + " y con FIN: " + fin);
+                    ini = fin;
+                }
             }
-            fin = ini;
         }
 
     }

@@ -69,14 +69,6 @@ public class Ej19 {
         return pos - 1;
     }
 
-    public static int obtenerLongitudesDeCadaSecuencia(int[] arr, int ini, int fin) {
-        int longitud = 0;
-        for (int i = ini; i <= fin; i++) {
-            longitud = (fin - ini) + 1;
-        }
-        return longitud;
-    }
-
     public static void corrimientoIzquierda(int[] arr, int pos) {
         while (pos < MAX - 1) {
             arr[pos] = arr[pos + 1];
@@ -95,11 +87,13 @@ public class Ej19 {
         int fin = -1;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            int longitud = obtenerLongitudesDeCadaSecuencia(arr, ini, fin);
-            if (numero == longitud) {
-               eliminarSecuencia(arr, ini, fin);
-                fin = ini;
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                int longitud = (fin-ini)+1;
+                if (numero == longitud) {
+                   eliminarSecuencia(arr, ini, fin);
+                    fin = ini;
+                }
             }
 
         }

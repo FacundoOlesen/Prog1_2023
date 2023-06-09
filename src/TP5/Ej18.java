@@ -64,16 +64,16 @@ public class Ej18 {
         int secuenciamayor = 0;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            int longitudsecuencia = sumarLongitudesDeCadaSecuencia(arr, ini, fin);
-
-            if (longitudsecuencia > secuenciamayor) {
-                secuenciamayor = longitudsecuencia;
-                iniciomayor = ini;
-                finmayor = fin;
-                fin = ini;
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                int longitudsecuencia = sumarLongitudesDeCadaSecuencia(arr, ini, fin);
+                if (longitudsecuencia > secuenciamayor) {
+                    secuenciamayor = longitudsecuencia;
+                    iniciomayor = ini;
+                    finmayor = fin;
+                    fin = ini;
+                }
             }
-
         }
         System.out.println("La secuncia de mayor tamaño tiene una longitud de: " + ((finmayor - iniciomayor) + 1) + " y empieza en: "
                 + iniciomayor + " y termina en: " + finmayor);

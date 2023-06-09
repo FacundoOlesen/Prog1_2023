@@ -7,9 +7,9 @@ public class Ej23 {
     public static final double probabilidad_numero = 0.4;
 
     public static void main(String[] args) {
-        int arr[] = { 0, 3, 4, 5, 0, 3, 4, 5 ,6 ,2 ,3, 0, 2, 3, 0, 6, 8, 7, 4, 0 };
+        int arr[] = { 0, 3, 4, 5, 0, 3, 4, 5, 6, 2, 3, 0, 2, 3, 0, 6, 8, 7, 4, 0 };
         imprimir_arreglo_secuencias_int(arr);
-        int fin = obtener_pos_fin(arr, MAX-1);
+        int fin = obtener_pos_fin(arr, MAX - 1);
         int ini = obtener_pos_ini(arr, fin);
         invertirOrdenUltimaSecuencia(arr, ini, fin);
         imprimir_arreglo_secuencias_int(arr);
@@ -52,11 +52,14 @@ public class Ej23 {
     }
 
     public static void invertirOrdenUltimaSecuencia(int[] arr, int ini, int fin) {
-        int retener;
-        for (int i = ini; i < fin-1 ; i++) {
-            retener = arr[i];
-            arr[i]= arr[(fin+ini)-i];
-            arr[(fin+ini)-i] =retener;
-         }
+        int i = ini;
+        int j = fin;
+        while (i < j) {
+            int aux = arr[i];
+            arr[i] = arr[j];
+            arr[j] = aux;
+            i++;
+            j--;
+        }
     }
 }

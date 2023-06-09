@@ -61,14 +61,15 @@ public class Ej21 {
         int fin = -1;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            int acum= acumularCantidadDeElementosDescendentes(arr, ini, fin);
-            int longitud = (fin-ini)+1;
-           
-            if(acum==longitud &&longitud!=1){
-                eliminarSecuenciaDescendente(arr, ini, fin);
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                int acum= acumularCantidadDeElementosDescendentes(arr, ini, fin);
+                int longitud = (fin-ini)+1;
+                if(acum==longitud &&longitud!=1){
+                    eliminarSecuenciaDescendente(arr, ini, fin);
+                }
+                fin=ini;
             }
-            fin=ini;
         }
     }
 }

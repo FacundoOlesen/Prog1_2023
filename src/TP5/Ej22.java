@@ -72,10 +72,12 @@ public class Ej22 {
         int fin = -1;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            if (compararSecuencias(arr, p, ini, fin)) {
-                reemplazarOcurrenciasDeAPorR(arr, r, ini, fin);
-                fin = ini;
+            if(ini<MAX){
+                fin = obtenerFin(arr, ini);
+                if (compararSecuencias(arr, p, ini, fin)) {
+                    reemplazarOcurrenciasDeAPorR(arr, r, ini, fin);
+                    fin = ini;
+                }
             }
         }
 

@@ -78,10 +78,12 @@ public class Ej20 {
             int fin = -1;
             while(ini<MAX){
                 ini=obtenerIni(arr, fin+1);
-                fin =obtenerFin(arr, ini);
-                if(compararSecuencias(arr, arrPatron, ini, fin)){
-                    eliminarSecuencia(arr, ini, fin);
-                    fin=ini;
+                if(ini<MAX){
+                    fin =obtenerFin(arr, ini);
+                    if(compararSecuencias(arr, arrPatron, ini, fin)){
+                        eliminarSecuencia(arr, ini, fin);
+                        fin=ini;
+                    }
                 }
 
             }

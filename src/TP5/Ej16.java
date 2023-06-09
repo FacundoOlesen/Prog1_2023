@@ -67,15 +67,17 @@ public class Ej16 {
 
         while(ini<MAX){
              ini= obtener_inicio_secuencia(arr, fin+1);
-             fin = obtener_fin_secuencia(arr, ini);
-            int suma= suma_secuencia(arr, ini, fin); 
-
-            if(suma>sumamayor){
-                sumamayor=suma;
-                iniciomayor=ini;
-                finmayor=fin;
-            }
-            fin=ini;
+             if(ini<MAX){
+                 fin = obtener_fin_secuencia(arr, ini);
+                int suma= suma_secuencia(arr, ini, fin); 
+    
+                if(suma>sumamayor){
+                    sumamayor=suma;
+                    iniciomayor=ini;
+                    finmayor=fin;
+                }
+                fin=ini;
+             }
         }
 
         System.out.println(("La suma de la secuencia mayor empieza en: " + iniciomayor + " termina en: " + finmayor + " y la suma da: " + sumamayor));
