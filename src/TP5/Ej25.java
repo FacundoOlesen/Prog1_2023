@@ -15,8 +15,9 @@ public class Ej25 {
         cargar_arreglo_aleatorio_secuencias_int(arr);
         imprimir_arreglo_secuencias_int(arr);
         int numero = obtenerNumeroUsuario();
-        compararNumeroConLongitudSecuencia(arr, arrNuevo,  numero);
-        imprimir_arregloNuevo(arrNuevo);
+        compararNumeroConLongitudSecuencia(arr, arrNuevo, numero);
+        System.out.print("\nArreglo de secuencias con las secuencias del otro arreglo con la longitud del numero ingresado x el usuario.\n|");
+        imprimir_arreglo_secuencias_int(arrNuevo);
     }
 
     public static void cargar_arreglo_aleatorio_secuencias_int(int[] arr) {
@@ -36,15 +37,6 @@ public class Ej25 {
         System.out.print("Arreglo de secuencias int\n|");
         for (int pos = 0; pos < MAX; pos++) {
             System.out.print(arr[pos] + "|");
-        }
-        System.out.print("\n");
-    }
-
-    public static void imprimir_arregloNuevo(int[] arrNuevo) {
-        System.out.print(
-                "\nArreglo de secuencias con las secuencias del otro arreglo con la longitud del numero ingresado x el usuario.\n|");
-        for (int pos = 0; pos < MAX; pos++) {
-            System.out.print(arrNuevo[pos] + "|");
         }
         System.out.print("\n");
     }
@@ -78,20 +70,22 @@ public class Ej25 {
         return pos - 1;
     }
 
-    public static void compararNumeroConLongitudSecuencia(int[] arr, int[] arrNuevo,  int numero) {
+    public static void compararNumeroConLongitudSecuencia(int[] arr, int[] arrNuevo, int numero) {
         int ini = 0;
         int fin = -1;
-        int j=0;
+        int j = 1;
         while (ini < MAX) {
             ini = obtenerIni(arr, fin + 1);
-            fin = obtenerFin(arr, ini);
-            int longitud = (fin - ini) + 1;
-            if (longitud == numero) {
-                for (int i = ini; i <= fin; i++) {
-                    arrNuevo[j] = arr[i];
-                    j++;
+            if (ini < MAX) {
+                fin = obtenerFin(arr, ini);
+                int longitud = (fin - ini) + 1;
+                if (longitud == numero) {
+                    for (int i = ini; i <= fin; i++) {
+                        arrNuevo[j] = arr[i];
+                        j++;
+                    }
+                    fin = ini;
                 }
-                fin=ini;
             }
         }
     }
