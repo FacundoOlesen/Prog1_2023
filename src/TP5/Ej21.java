@@ -40,14 +40,11 @@ public class Ej21 {
         }
     }
 
-    public static int acumularCantidadDeElementosDescendentes(int[]arr, int ini, int fin){
-        int acum=0;
-        for(int i=ini; i<=fin; i++){
-            if(arr[i]>arr[i+1]){
-                acum++;
-            }
+    public static boolean esDesc(int[]arr, int ini, int fin){
+        while(ini<=fin&& arr[ini]>arr[ini+1]){
+            ini++;
         }
-        return acum;
+        return ini>fin;
     }
 
     public static void eliminarSecuenciaDescendente(int[]arr, int ini, int fin){
@@ -63,12 +60,11 @@ public class Ej21 {
             ini = obtenerIni(arr, fin + 1);
             if(ini<MAX){
                 fin = obtenerFin(arr, ini);
-                int acum= acumularCantidadDeElementosDescendentes(arr, ini, fin);
-                int longitud = (fin-ini)+1;
-                if(acum==longitud &&longitud!=1){
+                int longitud = fin-ini+1;
+                if(esDesc(arr, ini, fin) && longitud !=1){
                     eliminarSecuenciaDescendente(arr, ini, fin);
+                    fin=ini;
                 }
-                fin=ini;
             }
         }
     }

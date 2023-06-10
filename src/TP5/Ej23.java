@@ -52,14 +52,12 @@ public class Ej23 {
     }
 
     public static void invertirOrdenUltimaSecuencia(int[] arr, int ini, int fin) {
-        int i = ini;
-        int j = fin;
-        while (i < j) {
-            int aux = arr[i];
-            arr[i] = arr[j];
-            arr[j] = aux;
-            i++;
-            j--;
+        while (ini <= fin) {
+            int aux = arr[ini];
+            arr[ini] = arr[fin];
+            arr[fin] = aux;
+            ini++;
+            fin--;
         }
     }
 }

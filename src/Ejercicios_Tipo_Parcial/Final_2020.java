@@ -58,6 +58,7 @@ public class Final_2020 {
                 if((fin-ini+1) %2==0){                              
                     copiarSecDeAEnPar(arr, par, ini, fin);
                 }
+                ini=fin;
             }
         }
     }

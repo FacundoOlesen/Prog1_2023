@@ -40,26 +40,14 @@ public class Ej22 {
     public static boolean compararSecuencias(int[] arr, int[] P, int ini, int fin) {
         int longitud = (fin - ini) + 1;
         if (longitud == MAXP) {
-            int i = ini;
             int ip = 0;
-            while (i <= fin && arr[i] == P[ip]) {
-                i++;
+            while (ini <= fin && arr[ini] == P[ip]) {
+                ini++;
                 ip++;
             }
-
-            if (i > fin) {
-                return true;
-            } 
-            else {
-                return false;
-            }
         }
-
-        else {
-            return false;
-        }
-    }
-    
+        return ini>fin;
+}
     public static void reemplazarOcurrenciasDeAPorR(int arr[], int[] r, int ini, int fin) {
         int j = 0;
         for (int i = ini; i <= fin; i++) {
@@ -76,7 +64,7 @@ public class Ej22 {
                 fin = obtenerFin(arr, ini);
                 if (compararSecuencias(arr, p, ini, fin)) {
                     reemplazarOcurrenciasDeAPorR(arr, r, ini, fin);
-                    fin = ini;
+                    ini=fin;
                 }
             }
         }

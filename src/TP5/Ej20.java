@@ -54,25 +54,14 @@ public class Ej20 {
     public static boolean compararSecuencias(int[]arr, int []arrPatron, int ini, int fin){
         int longitud= (fin-ini)+1;
         if(longitud==MAXP){
-            int i=ini;
             int ip=0;
-            while(i<=fin&&arr[i]==arrPatron[ip]){
-                i++;
+            while(ini<=fin&&arr[ini]==arrPatron[ip]){
+                ini++;
                 ip++;
             }
-            if(i>fin){
-                return true;
-            }
-            else{
-                return false;
-            }
         }
-        else{
-            return false;
-        }
-
+        return ini>fin;
     }
-
     public static void eliminarSecuenciaPatron(int []arr, int[] arrPatron){
             int ini = 0;
             int fin = -1;
