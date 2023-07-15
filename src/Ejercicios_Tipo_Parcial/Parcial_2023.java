@@ -37,7 +37,7 @@ public class Parcial_2023 {
     }
 
     public static void eliminarSecuencia(int[] arr, int ini, int fin) {
-        for (int i = ini; i <= fin; i++) {
+        for (int i = ini+2; i <= fin; i++) {
             corrimientoIzquieda(arr, ini);
         }
     }
@@ -46,7 +46,7 @@ public class Parcial_2023 {
         while(ini<=fin&&arr[ini]==arr[ini+1]){
             ini++;
         }
-        return ini>fin;
+        return ini==fin;
     }
 
     public static void eliminarSecuenciasRep(int[]arr){
@@ -57,12 +57,9 @@ public class Parcial_2023 {
             if(ini<MAX){
                 fin=obtenerFin(arr, ini);
                 int longitud = fin-ini+1;
-                int nrorep= arr[ini];
-                int posReemplazar=ini;
                 if(longitud>REP&&esRep(arr, ini, fin)){
                     eliminarSecuencia(arr, ini, fin);
-                    arr[posReemplazar]= nrorep;
-                    arr[posReemplazar+1]= -(longitud);
+                    arr[ini]= -(longitud);
                     fin=ini;
                 }
             }
