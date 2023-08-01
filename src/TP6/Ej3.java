@@ -85,7 +85,7 @@ public class Ej3 {
 
     public static void realizarCorrimientoAPartirDePos(int[]arr, int fila, int columna) {
         if ((0 <= fila) && (fila < MAXFILA) && (0 <= columna) && (columna < MAXCOLUMNA)) {
-            corrimientoIzquierda(arr, fila);
+            corrimientoIzquierda(arr, columna);
         }
     }
 }

@@ -11,11 +11,10 @@ public class Ej12 {
 
     public static void main(String[] args) {
         char[][] mat;
-        int ini = 0, fin = 0;
         mat = new char[MAXFILA][MAXCOLUMNA];
         cargar_matriz_secuencias(mat);
         imprimir_matriz_secuencias(mat);
-        iterarFilaXFila(mat, ini, fin);
+        iterarFilaXFila(mat);
     }
 
     public static void cargar_matriz_secuencias(char[][] matint) {
@@ -44,32 +43,31 @@ public class Ej12 {
 
     }
 
-    public static int buscarAnteUltimoIni(char arr[], int pos) {
+    public static int buscarUltimoIni(char arr[], int pos) {
         while (pos > 0 && arr[pos] != ' ') {
             pos--;
         }
         return pos + 1;
     }
 
-    public static int buscarAnteUltimoFin(char[] arr, int pos) {
-        pos = MAXCOLUMNA - 1;
+    public static int buscarUltimoFin(char[] arr, int pos) {
         while (pos > 0 && arr[pos] == ' ') {
             pos--;
         }
         return pos;
     }
 
-    public static void iterarFilaXFila(char[][] mat, int ini, int fin) {
+    public static void iterarFilaXFila(char[][] mat) {
         for (int fila = 0; fila < MAXFILA; fila++) {
-            recorrerSecs(mat[fila], ini, fin);
+            recorrerSecs(mat[fila]);
         }
     }
 
-    public static void recorrerSecs(char[] arr, int ini, int fin) {
+    public static void recorrerSecs(char[] arr) {
         int anteultimoini = 0;
         int anteultimofin = 0;
-        fin = buscarAnteUltimoFin(arr, MAXCOLUMNA - 1);
-        ini = buscarAnteUltimoIni(arr, fin);
+        int fin = buscarUltimoIni(arr, MAXCOLUMNA - 1);
+        int ini = buscarUltimoFin(arr, fin);
         int aux = ini - 1;
 
         while (fin > 0 && arr[aux] == ' ') {

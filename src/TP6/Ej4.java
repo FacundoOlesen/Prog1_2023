@@ -100,7 +100,7 @@ public class Ej4 {
 
     public static void realizarCorrimientoYAgregarNumero(int[] arr, int fila, int columna) {
         if ((0 <= fila) && (fila < MAXFILA) && (0 <= columna) && (columna < MAXCOLUMNA)) {
-            corrimiento_der_fila_columna(arr, fila);
+            corrimiento_der_fila_columna(arr, columna);
         }
     }
 }
