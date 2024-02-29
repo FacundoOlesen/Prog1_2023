@@ -62,10 +62,10 @@ public class Ej15 {
     }
 
     public static boolean esDesc(char[]arr, int ini, int fin){
-        while(ini<=fin&&arr[ini]>arr[ini+1]){
+        while(ini<fin&&arr[ini]>arr[ini+1]){
             ini++;
         }
-        return ini>fin;
+        return ini==fin;
     }
 
     public static void procesarSecuencias(char[] arr) {

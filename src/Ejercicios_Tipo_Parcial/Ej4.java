@@ -6,6 +6,9 @@
 
 package Ejercicios_Tipo_Parcial;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Ej4 {
     public static final int MAX = 14;
     public static final int MIN_SEC = 1;
@@ -23,7 +26,7 @@ public class Ej4 {
         procesarSecuencias(arr_sec, reemplazo);
         System.out.println("ARR_SEC MODIFICADO: ");
         mostrarArreglo(arr_sec);
-
+        ArrayList <String> xd = new ArrayList<String>();
     }
 
     public static void mostrarArreglo(char[] arr) {
